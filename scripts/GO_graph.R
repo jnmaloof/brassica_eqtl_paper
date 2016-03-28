@@ -13,4 +13,8 @@ eigen(test)
 ?svd
 svd(test)
 
-# next! duv figure these out. 
+# next! DUV figure these out. 
+# D vector min of n or p
+
+library("qpgraph")
+
