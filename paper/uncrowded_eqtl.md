@@ -13,14 +13,18 @@ The genes, proteins, and metabolites in developmental pathways do not act in iso
 For this paper, we combined different forms of biological information to narrow down gene candidates for consistant physioligcal and development QTL. We will step through our thought process for collecting and integrating increasingly complex data sets towards finding the potential causative genes underlying these QTL. We will first describe an experiment just involving the parents of the genetic mapping population and then move on to quantifying gene expression across the entire population. At each step we will constantly ask what new form of information does this increasingly complex data give us? Then discuss the limitations of each form of information. We will finish by giving suggestions as to what genes are likely candidates for the QTL of interest.
 
 # Methods
-## What materials did you use?
-Leaf and silique tissue from parents in the field. We decided to use the meristem tissue for RNA-seq as it usually gives the best information on what individual plants are "planning" on doing developmentally. We collected this tissue and flash froze it liquid nitrogen. We extracted the RNA and prepared libraries for RNA-sequencing following Ravi's protocol. The sequencing was preformed at the Berkeley Sequencing Facility. The raw reads were quality scored and mapped to the Chifu genome v1.5 . Counts of uniquely mapped reads were generated for each sample. 
 
-## Population of the study
-This study focused on the IMB211xR500 cross. 
+### Field Site, Mapping Population, Experimental Design, Tissue Collection
+The field site was located at the University of Wyoming Agricultural Experimental Station in Laramie, Wyoming. Individual plants were germinated in the greenhouse for two weeks prior to transplant. 125 genotypes of the Brassica rapa IRRI population (described in @brock_floral_2010) were transplanted to the field with replicates for each genotype filling one of five blocks.
 
-## What is the design of your research?
-The field site was the Wyoming experimental station. It was a randomized block design. Each genotype in the population has tissue collected from it.
+### Tissue Collection, RNA Isolation, RNA-seq Library Preperation
+After plants were estiblished in the field three weeks, apical meristem tissue was collected from indiviual replicate plants into 1.5 mL epindorf tubes and immediately flash frozen in liquid N. Individual samples were ground at -70 C using a morter and pestel. Powdered tissue was combined with RNA stabilization buffer and RNA was isolated following @Ravi_seq_2012. Individual cDNA libraries were created for each of the samples following (@Ravi_seq_2012, @Devessity_2013). 
+
+### Sequencing and Bioinformatics
+The sequencing was preformed at the Berkeley Sequencing Facility. The raw reads were quality scored and mapped to the Chifu genome v1.5. Counts of uniquely mapped reads were generated for each sample following @Divessitty_2013. Counts files generated from this pipeline were analysed using the Limma/Voom package in R using genotype and replicates as factors in a simple regression model(@smyth_limma, @R-foundation). Calculated model fitted values for each gene for each individual genotype were generated and used for Expression QTL Mapping.
+
+### Expression QTL Mapping
+Gene expression values for each per genotype were first mapped using the scanone() function in the R/QTL package (@broman_rqtl). 
 
 # Results
 ## What are your most significant results?
@@ -56,7 +60,7 @@ What can parental gene expression data tell us?
 What does eQTL data add?
 What does modeling multi-level datasets allow us to do?
 
-This paper is a follow-up to two previous publications Brock2010 and Covington2016. These papers examined the genetic architecture of the important traits of flowering time and leaf length. Brock2010 quantified these important traits and mapped them using a first version of a genetic map produced by the creators of the mapping population . Covington2016 followed up on both of these papers by creating a new genetic map out of molecular markers derived from RNA-seq data. One of the main conclusions from Covington2016 was that the new genetic map could refine genetic architechture for traits already mapped and provided known genomic locations of the molecular markers used to create the map. These three papers opened up the possibilities of this papers to follow-up and try to estimate genes that are involved in genetic architecture of the trait rather than just the genomic regions. This lays the ground work for combining data sets across biological scales. 
+This paper is a follow-up to two previous publications @brock_floral_2010 and Covington2016. These papers examined the genetic architecture of the important traits of flowering time and leaf length. @brock_floral_2010 quantified these important traits and mapped them using a first version of a genetic map produced by the creators of the mapping population . Covington2016 followed up on both of these papers by creating a new genetic map out of molecular markers derived from RNA-seq data. One of the main conclusions from Covington2016 was that the new genetic map could refine genetic architechture for traits already mapped and provided known genomic locations of the molecular markers used to create the map. These three papers opened up the possibilities of this papers to follow-up and try to estimate genes that are involved in genetic architecture of the trait rather than just the genomic regions. This lays the ground work for combining data sets across biological scales. 
 
 Traits that are segregating in a population have a molecular mechanistic underpinning. In the case of a recombinant in-bred line population, there are only two allelic states. This is an advantage because there is less concern about how heterozygous individuals at a locus are manifesting the trait being studied. One of the molecular mechanisms that can explain a trait of interest is differences in gene expression between the two allelic states. Or, to put it another way, the causative gene for the physiological phenotype could be manifest by a difference in how that gene is expressed. If a region of the genome confering the difference in phenotype is known, a simple question is if there are any differences in gene expression between the parents of the population in that region. If there are differences between many genes, how then to choose? Do any of the genes make sense according to what is known about the trait *and* are differentially expressed between the parents? We blah blah blah...need to answer this question first with the data.
 
