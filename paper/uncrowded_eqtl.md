@@ -17,6 +17,9 @@ For this paper, we combined different forms of biological information to narrow 
 ### Field Site, Mapping Population, Experimental Design, Tissue Collection
 The field site was located at the University of Wyoming Agricultural Experimental Station in Laramie, Wyoming. Individual plants were germinated in the greenhouse for two weeks prior to transplant. 125 genotypes of the Brassica rapa IRRI population (described in @brock_floral_2010) were transplanted to the field with replicates for each genotype filling one of five blocks.
 
+#### TODO:
+Parental Data description
+
 ### Tissue Collection, RNA Isolation, RNA-seq Library Preperation
 After plants were estiblished in the field three weeks, apical meristem tissue was collected from indiviual replicate plants into 1.5 mL epindorf tubes and immediately flash frozen in liquid N. Individual samples were ground at -70 C using a morter and pestel. Powdered tissue was combined with RNA stabilization buffer and RNA was isolated following @Ravi_seq_2012. Individual cDNA libraries were created for each of the samples following (@Ravi_seq_2012, @Devessity_2013). 
 
@@ -26,40 +29,31 @@ The sequencing was preformed at the Berkeley Sequencing Facility. The raw reads 
 ### Expression QTL Mapping
 Gene expression values for each per genotype were first mapped using the scanone() function in the R/QTL package (@broman_rqtl). 
 
+#### TODO:
+BLAST, Permutation
+
 # Results
-## What are your most significant results?
-Overview of cis and trans eqtl we get many more cis than trans and get the distinct cis diagonal band (Fig 1)
-There are 8907 cis eQTL for LOD scores > 4 (Fig 2)
-There are 3749 Trans eQTL for LOD scores > 4 (Fig 3)
-GO enrichment for metabolism related genes in the Cis eQTL set (Supp table 1)
-GO enrichment for defense genes and photosynthesis for the Trans set (Supp table 2)
+## Expression QTL Overview
+Of the X genes that were differentially expressed between the parental samples, X had significant expression QTL associated with them. Of these, X were cis and X were trans expression QTL to the physical location of the gene on the chromosome. Of the X number of total genes expressed in the samples, X had significant expression QTL meeting our LOD significance threshold (LOD > 4, Figure 1). The expression QTL were distributed throughout all 10 chromosomes of Brassica rapa (Table X, Chromosome distribution) with the cis-effect expression QTL forming the distinctive cis-diagonal band (Figure 1). There were many more cis-effect (__8907__, Figure 2) expression QTL than trans-effect (__3749__, Figure 3) QTL. 
 
-eQTL hotspots on chromosomes A01, A02, A06, A09, A10 (Fig 4)
-Hotspots on A02 and A06 line up with flowering time genes (Fig 4)
-Other hotspots do not. (Fig 4)
+There were many large effect cis expression QTL in this study. The top three cis-effect eQTL with LOD scores of over 100 were located on Chromosomes A01, A02, A06. The largest cis-effect eQTL (chromosome A02) is protein of unknown function (LOD 287; Figure 1). The second largest cis-effect (A06) is AT3G49640 (E=9e-177) | FAD binding / catalytic/ tRNA dihydrouridine synthase (LOD 186; Figure 1). Third largest cis effect (A01) starch synthase - AT3G01180 (E=1e-058) AtSS2 | AtSS2 (starch synthase 2); transferase, transferring (LOD 160; Fig 1). 
 
+## Hotspots
+Trans expression QTL hotspots were located on chromosomes A01, A02, A06, A09, A10 (Fig 4). The trans expression QTL hotspots on A02 and A06 line up with known flowering time genes (Fig 4, Supplemental Figure 1). 
 Trans hotspots line up on LF1 portion of the genome (Fig 5)
 
+Hotspot on 6 effects many genes but signal is more diffuse across the chromosome. Many more flowering genes on this chromosome than the others? Or just the major flowering time genes in the pathway? @hammond_regulatory_2011 found that there were enriched regions for Phosphorus. 
+
+## Expression QTL Overlapping Developmental QTL
+@brock_floral_2010 found that there were significant flowering time and leaf length QTL for this population. With the new genetic map created in @Covington2016, we were able to refine the QTL boundries and overlap them with the expression QTL data from this study. 
 Flowering QTL on A03, A07, A10. 
 Leaf Length QTL on A01, A03, A06, A10.
 
-## What are your supporting results?
-Hotspot on 6 effects many genes but signal is more diffuse across the chromosome. Many more flowering genes on this chromosome than the others? 
-
-cis effect eqtl with lod over 100:
-Largest cis-effect eQTL (chromosome A02) is protein of unknown function (LOD 287; Fig 1)
-Second largest cis-effect (A06) is AT3G49640 (E=9e-177) | FAD binding / catalytic/ tRNA dihydrouridine synthase (LOD 186; Fig 1)
-Third largest cis effect (A01) starch synthase - AT3G01180 (E=1e-058) AtSS2 | AtSS2 (starch synthase 2); transferase, transferring (LOD 160; Fig 1)
-
+###TODO:
 trans effect eqtl with lod over 100:
 Largest trans-effect eQTL are mostly proteins of unknown function. Is it possible that these are just misplaced in the genome and are actually cis effect. Might be fixed with new mapping? 
 
 # Discussion
-Provide a groundwork for combining datasets
-What can parental gene expression data tell us?
-What does eQTL data add?
-What does modeling multi-level datasets allow us to do?
-
 This paper is a follow-up to two previous publications @brock_floral_2010 and Covington2016. These papers examined the genetic architecture of the important traits of flowering time and leaf length. @brock_floral_2010 quantified these important traits and mapped them using a first version of a genetic map produced by the creators of the mapping population . Covington2016 followed up on both of these papers by creating a new genetic map out of molecular markers derived from RNA-seq data. One of the main conclusions from Covington2016 was that the new genetic map could refine genetic architechture for traits already mapped and provided known genomic locations of the molecular markers used to create the map. These three papers opened up the possibilities of this papers to follow-up and try to estimate genes that are involved in genetic architecture of the trait rather than just the genomic regions. This lays the ground work for combining data sets across biological scales. 
 
 Traits that are segregating in a population have a molecular mechanistic underpinning. In the case of a recombinant in-bred line population, there are only two allelic states. This is an advantage because there is less concern about how heterozygous individuals at a locus are manifesting the trait being studied. One of the molecular mechanisms that can explain a trait of interest is differences in gene expression between the two allelic states. Or, to put it another way, the causative gene for the physiological phenotype could be manifest by a difference in how that gene is expressed. If a region of the genome confering the difference in phenotype is known, a simple question is if there are any differences in gene expression between the parents of the population in that region. If there are differences between many genes, how then to choose? Do any of the genes make sense according to what is known about the trait *and* are differentially expressed between the parents? We blah blah blah...need to answer this question first with the data.
@@ -80,16 +74,12 @@ Figure 1: Whole genome differential gene expression between R500 and IMB211. Dis
 ## Figure 2 
 Figure 2: Whole genome expression quantitative trait loci (QTL).
 This plot displays local (cis) and distal (trans) gene expression.
-QTL are considered cis if they occur within X distance of the gene's physical position, or trans otherwise.
-Data points are false colored to represent the Likelihood Odds Ratio (LOD) significance score from black to blue. 
+QTL are considered cis if they occur within X distance of the gene's physical position, or trans otherwise. Data points are false colored to represent the Likelihood Odds Ratio (LOD) significance score from black to blue. 
 
 ## Figure 3
-Figure 3: Genome wide *cis* effect expression QTL distribution and significance score.
-Overlayed are red tick marks for genes differentially expressed in the parental dataset and displaying a significant cis eQTL. 
+Figure 3: Genome wide *cis* effect expression QTL distribution and significance score. Overlayed are red tick marks for genes differentially expressed in the parental dataset and displaying a significant cis eQTL. 
 
 ## Figure 4
-Figure 4: Genome wide *trans* effect expression QTL distribution and significance score. 
-Blue boxes surround trans eQTL hotspot peaks determined through permutation tests. 
-Red ticks denote genomic location of flowering time genes. 
+Figure 4: Genome wide *trans* effect expression QTL distribution and significance score. Blue boxes surround trans eQTL hotspot peaks determined through permutation tests. Red ticks denote genomic location of flowering time genes. 
 
 # References
