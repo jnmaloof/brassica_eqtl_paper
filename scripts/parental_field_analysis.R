@@ -1,8 +1,8 @@
 ###########
 # Cody Markelz
 # markelz@gmail.com
-# B rapa parental RNA-seq
-# Modified December 17, 2015
+# B rapa parental RNA-seq field
+# Modified March 28, 2016
 ###########
 
 # GO enrichment?
@@ -124,7 +124,7 @@ dim(leaf_de)
 
 leaf_de <- calcNormFactors(leaf_de)
 system.time(leaf_voom <- voom(leaf_de, leaf_model, plot = TRUE))
-system.time(leaf_fit <-lmFit(leaf_voom, leaf_model))
+system.time(leaf_fit <- lmFit(leaf_voom, leaf_model))
 leaf_fit <- eBayes(leaf_fit)
 leaf_fit
 leaf_genes <- topTable(leaf_fit, p.value = 0.05, n = Inf)
