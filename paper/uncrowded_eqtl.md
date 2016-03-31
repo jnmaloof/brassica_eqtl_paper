@@ -13,18 +13,20 @@ The genes, proteins, and metabolites in developmental pathways do not act in iso
 For this paper, we combined different forms of biological information to narrow down gene candidates for consistant physioligcal and development QTL. We will step through our thought process for collecting and integrating increasingly complex data sets towards finding the potential causative genes underlying these QTL. We will first describe an experiment just involving the parents of the genetic mapping population and then move on to quantifying gene expression across the entire population. At each step we will constantly ask what new form of information does this increasingly complex data give us? Then discuss the limitations of each form of information. We will finish by giving suggestions as to what genes are likely candidates for the QTL of interest.
 
 # Methods
-
-### Field Site, Mapping Population, Experimental Design, Tissue Collection
-The field site was located at the University of Wyoming Agricultural Experimental Station in Laramie, Wyoming. Individual plants were germinated in the greenhouse for two weeks prior to transplant. 125 genotypes of the Brassica rapa IRRI population (described in @brock_floral_2010) were transplanted to the field with replicates for each genotype filling one of five blocks.
+### Plant materials, experimental design, tissue collection
+The field site was located at the University of Wyoming Agricultural Experimental Station in Laramie, Wyoming. This study focused on 125 recombinant inbred lines and the two parental genotypes of the Brassica rapa IRRI population (described in @iniguez-luy_development_2009, @brock_floral_2010). Individual plants were sown on XXX potting media on XXXX date in a greenhouse and transplanted to the field on XXXX date following established protocols (@dechaine_qtl_2014). Each biological replicate of each genotype filled one of five blocks. After plants were estiblished in the field three weeks, apical meristem tissue was collected from indiviual replicate plants into 1.5 mL epindorf tubes and immediately flash frozen in liquid N and stored at -80C until RNA-isolation. 
 
 #### TODO:
-Parental Data description
+Parental Field Data Description- 2010 or 2011? __ATTENTION UPENDRA__
 
-### Tissue Collection, RNA Isolation, RNA-seq Library Preperation
-After plants were estiblished in the field three weeks, apical meristem tissue was collected from indiviual replicate plants into 1.5 mL epindorf tubes and immediately flash frozen in liquid N. Individual samples were ground at -70 C using a morter and pestel. Powdered tissue was combined with RNA stabilization buffer and RNA was isolated following @Ravi_seq_2012. Individual cDNA libraries were created for each of the samples following (@Ravi_seq_2012, @Devessity_2013). 
+### Total RNA isolation, RNA-seq library preparation, sequencing 
+RNA was extracted and purified from all samples using a RNAeasy Plant Mini Kit (Qiagen) combined with DNase1 (Qiagen) to remove contaminating DNA. Quantity and quality of isolated RNA were quantified on a Nanodrop ND 1000 (NanoDrop technologies). RNA-seq libraries were made following (@devisetty_polymorphism_2015). Samples were pooled into 8 large pools and sequenced on X lanes on the Illumina Genome Analyzer (GAIIx) as 100-bp single end reads.  __ATTENTION UPENDRA__ 
 
-### Sequencing and Bioinformatics
-The sequencing was preformed at the Berkeley Sequencing Facility. The raw reads were quality scored and mapped to the Chifu genome v1.5. Counts of uniquely mapped reads were generated for each sample following @Divessitty_2013. Counts files generated from this pipeline were analysed using the Limma/Voom package in R using genotype and replicates as factors in a simple regression model(@smyth_limma, @R-foundation). Calculated model fitted values for each gene for each individual genotype were generated and used for Expression QTL Mapping.
+### RNA-Seq Read Processing
+The raw reads were quality scored and mapped to the Chifu genome v1.5. Counts of uniquely mapped reads were generated for each sample following @devisetty_polymorphism_2015. __ATTENTION UPENDRA__
+
+### RNA-Seq Statistics
+Counts files generated from this pipeline were analysed using the Limma/Voom package in R using genotype and replicates as factors in a simple regression model(@smyth_limma, @R-foundation). Calculated model fitted values for each gene for each individual genotype were generated and used for Expression QTL Mapping.
 
 ### Expression QTL Mapping
 Gene expression values for each per genotype were first mapped using the scanone() function in the R/QTL package (@broman_rqtl). 
@@ -36,7 +38,7 @@ BLAST, Permutation
 ## Expression QTL Overview
 Of the X genes that were differentially expressed between the parental samples, X had significant expression QTL associated with them. Of these, X were cis and X were trans expression QTL to the physical location of the gene on the chromosome. Of the X number of total genes expressed in the samples, X had significant expression QTL meeting our LOD significance threshold (LOD > 4, Figure 1). The expression QTL were distributed throughout all 10 chromosomes of Brassica rapa (Table X, Chromosome distribution) with the cis-effect expression QTL forming the distinctive cis-diagonal band (Figure 1). There were many more cis-effect (__8907__, Figure 2) expression QTL than trans-effect (__3749__, Figure 3) QTL. 
 
-There were many large effect cis expression QTL in this study. The top three cis-effect eQTL with LOD scores of over 100 were located on Chromosomes A01, A02, A06. The largest cis-effect eQTL (chromosome A02) is protein of unknown function (LOD 287; Figure 1). The second largest cis-effect (A06) is AT3G49640 (E=9e-177) | FAD binding / catalytic/ tRNA dihydrouridine synthase (LOD 186; Figure 1). Third largest cis effect (A01) starch synthase - AT3G01180 (E=1e-058) AtSS2 | AtSS2 (starch synthase 2); transferase, transferring (LOD 160; Fig 1). 
+There were many large effect cis expression QTL in this study. The top three cis-effect eQTL with LOD scores of over 100 were located on Chromosomes A01, A02, A06. The largest cis-effect eQTL (chromosome A02) is protein of unknown function (LOD 287; Figure 1). The second largest cis-effect (A06) is AT3G49640 (E=9e-177) | FAD binding / catalytic/ tRNA dihydrouridine synthase (LOD 186; Figure 1). Third largest cis effect (A01) starch synthase - AT3G01180 (E=1e-058) AtSS2 | AtSS2 (starch synthase 2); transferase, transferring (LOD 160; Figure 1). 
 
 ## Hotspots
 Trans expression QTL hotspots were located on chromosomes A01, A02, A06, A09, A10 (Fig 4). The trans expression QTL hotspots on A02 and A06 line up with known flowering time genes (Fig 4, Supplemental Figure 1). 
@@ -49,7 +51,7 @@ Hotspot on 6 effects many genes but signal is more diffuse across the chromosome
 Flowering QTL on A03, A07, A10. 
 Leaf Length QTL on A01, A03, A06, A10.
 
-###TODO:
+####TODO:
 trans effect eqtl with lod over 100:
 Largest trans-effect eQTL are mostly proteins of unknown function. Is it possible that these are just misplaced in the genome and are actually cis effect. Might be fixed with new mapping? 
 
@@ -68,18 +70,18 @@ If there is sequence level variation in the genes that could explain the other v
 
 # Figures
 
-## Figure 1
+#### Figure 1
 Figure 1: Whole genome differential gene expression between R500 and IMB211. Displayed is the t-statistic of the difference in expression across X number of tissue types (open symbols) and X number of environments (closed symbols).
 
-## Figure 2 
+#### Figure 2 
 Figure 2: Whole genome expression quantitative trait loci (QTL).
 This plot displays local (cis) and distal (trans) gene expression.
 QTL are considered cis if they occur within X distance of the gene's physical position, or trans otherwise. Data points are false colored to represent the Likelihood Odds Ratio (LOD) significance score from black to blue. 
 
-## Figure 3
+#### Figure 3
 Figure 3: Genome wide *cis* effect expression QTL distribution and significance score. Overlayed are red tick marks for genes differentially expressed in the parental dataset and displaying a significant cis eQTL. 
 
-## Figure 4
+#### Figure 4
 Figure 4: Genome wide *trans* effect expression QTL distribution and significance score. Blue boxes surround trans eQTL hotspot peaks determined through permutation tests. Red ticks denote genomic location of flowering time genes. 
 
 # References
