@@ -2,7 +2,7 @@
 # Cody Markelz
 # markelz@gmail.com
 # formatting for RQTL
-# Image is 
+# Image is RNAseq-data-formatting.RData
 # GPL License- http://www.gnu.org/licenses/gpl-3.0.en.html
 ##########
 
@@ -25,6 +25,9 @@ br_blues_final <- as.data.frame(t(br_blues_t))
 
 head(br_blues_final)[,1:10]
 tail(br_blues_final)[,1:10]
+
+names(br_blues_final) <- sub("(Br_)(RIL)(\\d+)", "\\2_\\3", names(br_blues_final))
+names(br_blues_final)
 
 #save output
 setwd("/Users/Cody_2/git.repos/brassica_eqtl_paper/input")
