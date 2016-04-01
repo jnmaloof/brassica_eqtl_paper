@@ -47,9 +47,7 @@ Trans hotspots line up on LF1 portion of the genome (Fig 5)
 Hotspot on 6 effects many genes but signal is more diffuse across the chromosome. Many more flowering genes on this chromosome than the others? Or just the major flowering time genes in the pathway? @hammond_regulatory_2011 found that there were enriched regions for Phosphorus. 
 
 ## Expression QTL Overlapping Developmental QTL
-@brock_floral_2010 found that there were significant flowering time and leaf length QTL for this population. With the new genetic map created in @Covington2016, we were able to refine the QTL boundries and overlap them with the expression QTL data from this study. 
-Flowering QTL on A03, A07, A10. 
-Leaf Length QTL on A01, A03, A06, A10.
+@brock_floral_2010 found that there were significant flowering time and leaf length QTL for this population. With the new genetic map created in @Covington2016, we were able to refine the QTL boundries and overlap them with the expression QTL data from this study. In these studies there were flowering QTL on on A03, A07, A10 and leaf length QTL on A01, A03, A06, A10.
 
 ####TODO:
 trans effect eqtl with lod over 100:
