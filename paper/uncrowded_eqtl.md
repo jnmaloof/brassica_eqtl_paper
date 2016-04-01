@@ -67,6 +67,7 @@ Hotspot on 6 effects many genes but signal is more diffuse across the chromosome
 If there is sequence level variation in the genes that could explain the other variation observed in the phenotypes, then we should be able to pick up on that variation. We can connect the pieces of information on a per gene basis, or chromosome block basis. Then we can compare those differences to the Provean results. The provean results show whether a SNP is related to an amino acid change, and if that amino acid change is related to differences in function for the protein. 
 
 # Figures
+![text here for writing](rils-merged.parent-based-snps.png)
 
 #### Figure 1
 Figure 1: Whole genome differential gene expression between R500 and IMB211. Displayed is the t-statistic of the difference in expression across X number of tissue types (open symbols) and X number of environments (closed symbols).
