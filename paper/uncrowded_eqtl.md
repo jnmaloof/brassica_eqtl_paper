@@ -29,10 +29,10 @@ The raw reads were quality scored and mapped to the Chifu genome v1.5. Counts of
 Counts files generated from this pipeline were analysed using the Limma/Voom package in R using genotype and replicates as factors in a simple regression model(@smyth_limma, @R-foundation). Calculated model fitted values for each gene for each individual genotype were generated and used for Expression QTL Mapping.
 
 ### Expression QTL Mapping
-Gene expression values for each per genotype were first mapped using the scanone() function in the R/QTL package (@broman_rqtl). 
+Gene expression values for each per genotype were first mapped using the scanone() function in the R/QTL package (@broman_rqtl). After 10,000 permutatations, genes with a liklihood odds score above 5 were selected for further analysis. The genetic map is saturated with markers for our population size so we were able to convert genetic distance to physical distance to determine *cis* versus *trans* QTL effects. *Trans* effect expression QTL for each gene were called if the QTL was located on another chromosome, or further than 2 Mb away from the gene's physical location.
 
 #### TODO:
-BLAST, Permutation
+BLAST, GO, 
 
 # Results
 ## Expression QTL Overview
