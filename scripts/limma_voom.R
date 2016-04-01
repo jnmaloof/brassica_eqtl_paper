@@ -3,6 +3,7 @@
 # markelz@gmail.com
 # voom/limma analysis for brassica RNAseq data
 # Image is limma-voom.RData
+# GPL License- http://www.gnu.org/licenses/gpl-3.0.en.html
 ##########
 
 # one time and will take a while to install all dependencies
@@ -106,7 +107,6 @@ head(brassica_BLUE_df_t)[,1:10]
 setwd("/Users/Cody_2/git.repos/brassica_eqtl_paper/input")
 write.table(brassica_BLUE_df, file="brassica_blues.csv", sep=",",
            row.names = TRUE, col.names = TRUE) 
-
 save.image(file = "limma-voom.RData")
 # end
 
