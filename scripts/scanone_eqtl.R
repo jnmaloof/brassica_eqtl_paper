@@ -8,9 +8,9 @@
 library(qtl)
 library(qtlhot)
 library(plyr)
-setwd("/Users/Cody_2/git.repos/brassica_eqtl_paper/input")
+setwd("/vol_c/brassica-eqtl-paper/input/")
 
-brass_total <- read.cross("csvsr", genfile ="snp_map_rqtl_Mbp_ref1.5_cross_output_gen_mod.csv", 
+brass_total <- read.cross("csvsr", genfile ="../../brassica_genetic_map_paper/output/snp_map_rqtl_Mbp_ref1.5.2_cross_output_gen.csv", 
 	                       phefile="br_blues_RQTL.csv", 
 	                       genotypes=c("AA","BB"), na.strings = "-")
 
